@@ -24,6 +24,9 @@ AIIDADB_NAME=curated_cofs_aiida1
 AIIDADB_USER=mcloud
 AIIDADB_PASS=mypass
 AIIDADB_BACKEND=django
+# optional, for creating database
+AIIDADB_SUPER_USER=admin
+AIIDADB_SUPER_PASS=myadminpass
 ```
 
 and run
