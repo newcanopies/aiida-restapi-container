@@ -1,0 +1,22 @@
+name: continuous-integration
+
+on: [push, pull_request]
+
+jobs:
+
+  docker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build the aiida-core image
+      run:
+        docker build -t aiida-restapi .
+
+    - name: Run aiida-restapi image
+      run: |
+        export DOCKERID=`docker run -d aiida-restapi`
+        docker logs $DOCKERID
+        docker exec --tty --user aiida $DOCKERID /bin/bash -l -c 'verdi profile show default'
