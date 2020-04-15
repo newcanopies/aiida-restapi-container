@@ -22,8 +22,6 @@ ENV AIIDADB_USER db_user
 ENV AIIDADB_PASS ""
 ENV AIIDADB_BACKEND django
 ENV default_user_email info@materialscloud.org
-ENV AIIDADB_SUPER_USER admin
-ENV AIIDADB_SUPER_PASS ""
 
 # start AiiDA REST API
 EXPOSE 5000

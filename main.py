@@ -86,8 +86,10 @@ def create_db(profile):
     except:
         print(traceback.format_exc())
 
-create_db(profile)
-config.update_profile(profile)
+if os.getenv("AIIDADB_SUPER_USER"):
+    create_db(profile)
+    config.update_profile(profile)
+
 load_profile(profile_name)
 
 CONFIG_DIR = os.path.join(
