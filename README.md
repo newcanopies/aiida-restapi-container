@@ -11,8 +11,9 @@ Credentials for connecting to the postgres DB are provided via environment varia
 
 ## Building the docker image
 ```
-docker build . -t aiida-restapi
+docker build . -t aiida-1.2.1-restapi --build-arg AIIDA_VERSION=1.2.1
 ```
+All variables except the AiiDA version can be set at run time
 
 ## Running the docker container
 

@@ -1,8 +1,10 @@
 # See https://www.digitalocean.com/community/tutorials/how-to-build-and-deploy-a-flask-application-using-docker-on-ubuntu-18-04
 FROM tiangolo/uwsgi-nginx-flask:python3.7
 
+ARG AIIDA_VERSION=1.2.1
+
 # Install AiiDA
-RUN pip install aiida-core[rest,atomic_tools]
+RUN pip install aiida-core[rest,atomic_tools]==$AIIDA_VERSION
 RUN reentry scan -r aiida
 
 # Scripts for REST API
